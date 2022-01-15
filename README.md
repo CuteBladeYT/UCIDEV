@@ -7,6 +7,7 @@ UCIDEV is a Open Source, Configurable Text / Code editor made in Godot.
 - [How to Install](#how-to-install)
 - [How to Use](#how-to-use)
 - [Customization](#customization)
+- [Plans for next Releases](https://github.com/CuteBladeYT/UCIDEV/projects/1)
 
 <br>
 
