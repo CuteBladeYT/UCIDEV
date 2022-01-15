@@ -371,7 +371,6 @@ hint_tooltip = "Close Current Directory"
 text = "X"
 icon = ExtResource( 11 )
 expand_icon = true
-script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -476,7 +475,7 @@ __meta__ = {
 
 [connection signal="tab_changed" from="files" to="." method="tabChanged"]
 [connection signal="text_changed" from="files/settings/code" to="." method="updateSettings"]
-[connection signal="pressed" from="actions/openDir" to="actions/closeDir" method="openDir"]
+[connection signal="pressed" from="actions/openDir" to="actions/openDir" method="openDir"]
 [connection signal="dir_selected" from="actions/openDir/popup" to="." method="changeProjectDir"]
 [connection signal="pressed" from="actions/closeDir" to="." method="closeDir"]
 [connection signal="pressed" from="actions/openFile" to="actions/openFile" method="openFile"]
