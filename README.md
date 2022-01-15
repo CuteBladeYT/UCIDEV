@@ -2,6 +2,10 @@
 
 UCIDEV is a Open Source, Configurable Text / Code editor made in Godot.
 
+[UCID itch.io](https://unitedcatdom.itch.io/ucidev)
+![itchiobanner](https://user-images.githubusercontent.com/78739707/149632044-61e655a3-1c0d-4d4e-a9ad-458c97289efb.png)
+
+
 ### Table of Contents
 - [How to Build](#how-to-build)
 - [How to Install](#how-to-install)
