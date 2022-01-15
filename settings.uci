@@ -1,0 +1,10 @@
+caretBlink 1
+caretBlock 0
+careBlinkSpeed 0.65
+minimap 1
+minimapWidth 80
+lineNum 1
+drawTabs 1
+drawSpaces 1
+brpointGutter 1
+foldGutter 1
