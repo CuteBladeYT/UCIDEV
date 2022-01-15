@@ -23,8 +23,12 @@ git clone https://github.com/CuteBladeYT/UCIDEV
 6. **Export project**, Remember to uncheck **Export with debugging**!
 7. Done!
 
+<br>
+
 ### How to Install
 Go to [Github Releases](https://github.com/CuteBladeYT/UCIDEV/releases) page and download the version for your Operating System
+
+<br>
 
 ### How to Use
 
@@ -35,8 +39,6 @@ Settings / Prefixes directory is `user://`
 - Linux: `~/.local/share/godot/`
 - Mac OSX: `~/Library/Application Support/Godot/`
 
-<br>
-
 #### Keybinds
 
 **Note: On Mac `CTRL` is `CMD`**
@@ -46,6 +48,7 @@ Settings / Prefixes directory is `user://`
 `CTRL + O` - Open new file
 `CTRL + D` - Change current directory
 
+<br>
 
 ### Customization
 **Note:** Paths are listed [here](#how-to-use)
