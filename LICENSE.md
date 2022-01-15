@@ -24,3 +24,5 @@ edit it and re-distribute.
 
 
 > Custom ADDITIONAL REMARKS
+
+- Icons are made by Microsoft and I don't own any of their work. Source: [Github: vscode-icons](https://github.com/microsoft/vscode-icons)
