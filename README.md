@@ -83,3 +83,10 @@ Theme and Highlighting colors config files can be found in `res://theme/`. They 
 #### Plugins
 
 Well yeah, in version **v2.0.0** plugins got included, they are stored in `res://plugins/` and they can be written in **GodotScript**, **NativeScript** and **VisualScript**. There's an example plugin that comes with UCID named `.example.gd` and is written in GodotScript.
+
+<br>
+
+#### Custom Background?!?!
+
+Yep. In version **v2.0.0** you can use your own custom background image.<br>
+It's stored in `res://` and the name should be `bg` ending with `.jpg` or `.png`
