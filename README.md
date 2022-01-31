@@ -38,41 +38,48 @@ Go to [Github Releases](https://github.com/CuteBladeYT/UCIDEV/releases) page and
 ### How to Use
 
 #### Directories
-Settings / Prefixes directory is `user://`
+Settings / Prefixes directory is `res://`<br>
+BUT there's also Project directory (for logs) in `user://`<br>
 `user://` on:
 - Windows: `%AppData%\Godot\UCIDEV`
 - Linux: `~/.local/share/godot/`
-- Mac OSX: `~/Library/Application Support/Godot/`
+- Mac OS X: `~/Library/Application Support/Godot/`
 
 #### Keybinds
 
 **Note: On Mac `CTRL` is `CMD`**
 
-`CTRL + S` - Save
-`CTRL + SHIFT + S` - Save As
-`CTRL + O` - Open new file
-`CTRL + D` - Change current directory
+`CTRL + S` - Save<br>
+`CTRL + SHIFT + S` - Save As<br>
+`CTRL + O` - Open new file<br>
+`CTRL + D` - Change project directory<br>
 
 <br>
 
 ### Customization
 **Note:** Paths are listed [here](#how-to-use)
 
-Settings file is in `user://settings.uci`<br>
+#### Settings
+
+Settings file is in `res://settings.uci`<br>
 It looks like this:
 ```
-caretBlink 1
-caretBlock 0
-careBlinkSpeed 0.65
-minimap 1
-minimapWidth 80
-lineNum 1
-drawTabs 1
-drawSpaces 1
-brpointGutter 1
-foldGutter 1
+lineNum true
+drawTabs true
+minimap true
+minimapWid 80
+caretBlock false
+caretBlink false
+smoothScroll false
 ```
+This is default settings that comes with 
 
 <br>
 
-Theme config can be found in `user://theme.tres` and it can be easily edited in Godot with live preview.
+Theme and Highlighting colors config files can be found in `res://theme/`. They can be easiy customized with Godot
+
+<br>
+
+#### Plugins
+
+Well yeah, in version **v2.0.0** plugins got included, they are stored in `res://plugins/` and they can be written in **GodotScript**, **NativeScript** and **VisualScript**. There's an example plugin that comes with UCID named `.example.gd` and is written in GodotScript.
