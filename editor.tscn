@@ -1,485 +1,447 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://scripts/editor.gd" type="Script" id=1]
-[ext_resource path="res://styles/theme.tres" type="Theme" id=2]
-[ext_resource path="res://icons/folder.svg" type="Texture" id=3]
-[ext_resource path="res://styles/actions.tres" type="Theme" id=4]
-[ext_resource path="res://icons/eye.svg" type="Texture" id=5]
-[ext_resource path="res://icons/file.svg" type="Texture" id=6]
-[ext_resource path="res://icons/refresh.svg" type="Texture" id=7]
-[ext_resource path="res://icons/arrow-up.svg" type="Texture" id=8]
-[ext_resource path="res://scripts/subscripts/open_directory.gd" type="Script" id=9]
-[ext_resource path="res://scripts/subscripts/open_file.gd" type="Script" id=10]
-[ext_resource path="res://icons/folder-opened.svg" type="Texture" id=11]
-[ext_resource path="res://icons/settings-gear.svg" type="Texture" id=12]
-[ext_resource path="res://icons/save.svg" type="Texture" id=13]
-[ext_resource path="res://scripts/subscripts/settings.gd" type="Script" id=14]
+[ext_resource path="res://fonts/heebo.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/main.gd" type="Script" id=2]
+[ext_resource path="res://theme/editor_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://theme/editor_global.tres" type="Theme" id=4]
+[ext_resource path="res://icons/file.svg" type="Texture" id=5]
+[ext_resource path="res://icons/folder.svg" type="Texture" id=6]
+[ext_resource path="res://icons/root-folder.svg" type="Texture" id=7]
+[ext_resource path="res://icons/refresh.svg" type="Texture" id=8]
+[ext_resource path="res://icons/eye.svg" type="Texture" id=9]
 
-[sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0.156863, 0.156863, 0.156863, 1 )
+[sub_resource type="DynamicFont" id=3]
+use_filter = true
+font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=7]
-content_margin_left = 6.0
-content_margin_right = 6.0
-bg_color = Color( 0.235294, 0.235294, 0.235294, 1 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_color = Color( 1, 1, 1, 1 )
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=4]
 content_margin_left = 6.0
 content_margin_right = 6.0
 bg_color = Color( 0.117647, 0.117647, 0.117647, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-corner_radius_top_left = 6
-corner_radius_top_right = 6
+border_width_left = 2
+border_width_right = 2
+border_color = Color( 1, 1, 1, 1 )
+expand_margin_left = 6.0
+expand_margin_right = 6.0
 
-[sub_resource type="StyleBoxEmpty" id=6]
+[sub_resource type="StyleBoxFlat" id=5]
+content_margin_left = 12.0
+content_margin_right = 12.0
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 2
+border_width_right = 2
+border_color = Color( 0.117647, 0.117647, 0.117647, 1 )
+expand_margin_left = 6.0
+expand_margin_right = 6.0
 
-[sub_resource type="StyleBoxFlat" id=9]
-content_margin_left = 3.0
-content_margin_right = 3.0
-content_margin_top = 3.0
-content_margin_bottom = 3.0
-bg_color = Color( 0.172549, 0.164706, 0.196078, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color( 0.133333, 0.12549, 0.152941, 1 )
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 1, 1, 1, 0 )
 
-[sub_resource type="Theme" id=10]
-Button/styles/normal = SubResource( 9 )
-
-[node name="Control" type="Control"]
+[node name="ucidev" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="bg" type="Panel" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_styles/panel = SubResource( 5 )
+[node name="plugins" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="files" type="TabContainer" parent="."]
-anchor_left = 0.06
-anchor_top = 0.02
+[node name="settings" type="TextEdit" parent="."]
+visible = false
 anchor_right = 1.0
-anchor_bottom = 0.98
-theme = ExtResource( 2 )
-custom_styles/tab_fg = SubResource( 7 )
-custom_styles/tab_bg = SubResource( 8 )
+anchor_bottom = 1.0
+readonly = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="project" type="TextEdit" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+readonly = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bg" type="TextEdit" parent="background"]
+visible = false
+modulate = Color( 0, 0, 0, 0 )
+self_modulate = Color( 0, 0, 0, 0 )
+show_behind_parent = true
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+readonly = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="img" type="TextureRect" parent="background"]
+modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="popups" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="open_dir" type="FileDialog" parent="popups"]
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+custom_icons/folder = ExtResource( 6 )
+custom_icons/toggle_hidden = ExtResource( 9 )
+custom_icons/parent_folder = ExtResource( 7 )
+custom_icons/reload = ExtResource( 8 )
+custom_icons/file = ExtResource( 5 )
+window_title = "Otwórz katalog"
+dialog_text = "Open Directory"
+dialog_autowrap = true
+mode = 2
+access = 2
+show_hidden_files = true
+current_dir = "/home/unitedcatdom/dev/UCIDEV/v2.0"
+current_path = "/home/unitedcatdom/dev/UCIDEV/v2.0/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="open_file" type="FileDialog" parent="popups"]
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+custom_icons/folder = ExtResource( 6 )
+custom_icons/toggle_hidden = ExtResource( 9 )
+custom_icons/parent_folder = ExtResource( 7 )
+custom_icons/reload = ExtResource( 8 )
+custom_icons/file = ExtResource( 5 )
+window_title = "Otwórz plik"
+dialog_text = "Open File"
+dialog_autowrap = true
+mode = 0
+access = 2
+show_hidden_files = true
+current_dir = "/home/unitedcatdom/dev/UCIDEV/v2.0"
+current_path = "/home/unitedcatdom/dev/UCIDEV/v2.0/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="save_file" type="FileDialog" parent="popups"]
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+custom_icons/folder = ExtResource( 6 )
+custom_icons/toggle_hidden = ExtResource( 9 )
+custom_icons/parent_folder = ExtResource( 7 )
+custom_icons/reload = ExtResource( 8 )
+custom_icons/file = ExtResource( 5 )
+window_title = "Save File"
+dialog_text = "Save File"
+dialog_autowrap = true
+access = 2
+show_hidden_files = true
+current_dir = "/home/unitedcatdom/dev/UCIDEV/v2.0"
+current_path = "/home/unitedcatdom/dev/UCIDEV/v2.0/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="editor" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="files" type="TabContainer" parent="editor"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color_bg = Color( 0.392157, 0.392157, 0.392157, 1 )
+custom_colors/font_color_fg = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/tab_fg = SubResource( 4 )
+custom_styles/tab_bg = SubResource( 5 )
 custom_styles/panel = SubResource( 6 )
 tab_align = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="1" type="Tabs" parent="files"]
+[node name="File 1" type="Tabs" parent="editor/files"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 24.0
+margin_top = 34.0
+drag_to_rearrange_enabled = true
 
-[node name="code" type="TextEdit" parent="files/1" groups=["idecode"]]
-anchor_left = -0.005
+[node name="code" type="TextEdit" parent="editor/files/File 1" groups=["code"]]
 anchor_right = 1.0
-anchor_bottom = 1.0
-highlight_current_line = true
-syntax_highlighting = true
-show_line_numbers = true
-draw_tabs = true
-draw_spaces = true
-breakpoint_gutter = true
-fold_gutter = true
-highlight_all_occurrences = true
-smooth_scrolling = true
-minimap_draw = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="2" type="Tabs" parent="files"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 24.0
-
-[node name="code" type="TextEdit" parent="files/2" groups=["idecode"]]
-anchor_left = -0.005
-anchor_right = 1.0
-anchor_bottom = 1.0
-highlight_current_line = true
-syntax_highlighting = true
-show_line_numbers = true
-draw_tabs = true
-draw_spaces = true
-breakpoint_gutter = true
-fold_gutter = true
-highlight_all_occurrences = true
-smooth_scrolling = true
-minimap_draw = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="3" type="Tabs" parent="files"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 24.0
-
-[node name="code" type="TextEdit" parent="files/3" groups=["idecode"]]
-anchor_left = -0.005
-anchor_right = 1.0
-anchor_bottom = 1.0
-highlight_current_line = true
-syntax_highlighting = true
-show_line_numbers = true
-draw_tabs = true
-draw_spaces = true
-breakpoint_gutter = true
-fold_gutter = true
-highlight_all_occurrences = true
-smooth_scrolling = true
-minimap_draw = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="4" type="Tabs" parent="files"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 24.0
-
-[node name="code" type="TextEdit" parent="files/4" groups=["idecode"]]
-anchor_left = -0.005
-anchor_right = 1.0
-anchor_bottom = 1.0
-highlight_current_line = true
-syntax_highlighting = true
-show_line_numbers = true
-draw_tabs = true
-draw_spaces = true
-breakpoint_gutter = true
-fold_gutter = true
-highlight_all_occurrences = true
-smooth_scrolling = true
-minimap_draw = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="5" type="Tabs" parent="files"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 24.0
-
-[node name="code" type="TextEdit" parent="files/5" groups=["idecode"]]
-anchor_left = -0.005
-anchor_right = 1.0
-anchor_bottom = 1.0
-highlight_current_line = true
-syntax_highlighting = true
-show_line_numbers = true
-draw_tabs = true
-draw_spaces = true
-breakpoint_gutter = true
-fold_gutter = true
-highlight_all_occurrences = true
-smooth_scrolling = true
-minimap_draw = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="6" type="Tabs" parent="files"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 24.0
-
-[node name="code" type="TextEdit" parent="files/6" groups=["idecode"]]
-anchor_left = -0.005
-anchor_right = 1.0
-anchor_bottom = 1.0
-highlight_current_line = true
-syntax_highlighting = true
-show_line_numbers = true
-draw_tabs = true
-draw_spaces = true
-breakpoint_gutter = true
-fold_gutter = true
-highlight_all_occurrences = true
-smooth_scrolling = true
-minimap_draw = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="7" type="Tabs" parent="files"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 24.0
-
-[node name="code" type="TextEdit" parent="files/7" groups=["idecode"]]
-anchor_left = -0.005
-anchor_right = 1.0
-anchor_bottom = 1.0
-highlight_current_line = true
-syntax_highlighting = true
-show_line_numbers = true
-draw_tabs = true
-draw_spaces = true
-breakpoint_gutter = true
-fold_gutter = true
-highlight_all_occurrences = true
-smooth_scrolling = true
-minimap_draw = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="8" type="Tabs" parent="files"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 24.0
-
-[node name="code" type="TextEdit" parent="files/8" groups=["idecode"]]
-anchor_left = -0.005
-anchor_right = 1.0
-anchor_bottom = 1.0
-highlight_current_line = true
-syntax_highlighting = true
-show_line_numbers = true
-draw_tabs = true
-draw_spaces = true
-breakpoint_gutter = true
-fold_gutter = true
-highlight_all_occurrences = true
-smooth_scrolling = true
-minimap_draw = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="9" type="Tabs" parent="files"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 24.0
-
-[node name="code" type="TextEdit" parent="files/9" groups=["idecode"]]
-anchor_left = -0.005
-anchor_right = 1.0
-anchor_bottom = 1.0
-highlight_current_line = true
-syntax_highlighting = true
-show_line_numbers = true
-draw_tabs = true
-draw_spaces = true
-breakpoint_gutter = true
-fold_gutter = true
-highlight_all_occurrences = true
-smooth_scrolling = true
-minimap_draw = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="settings" type="Tabs" parent="files"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 24.0
-
-[node name="code" type="TextEdit" parent="files/settings" groups=["idecode"]]
-anchor_left = -0.005
-anchor_right = 1.0
-anchor_bottom = 1.0
-highlight_current_line = true
-syntax_highlighting = true
-show_line_numbers = true
-draw_tabs = true
-draw_spaces = true
-breakpoint_gutter = true
-fold_gutter = true
-highlight_all_occurrences = true
-smooth_scrolling = true
-minimap_draw = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="actions" type="Panel" parent="."]
-anchor_right = 0.05
 anchor_bottom = 1.0
 theme = ExtResource( 4 )
-
-[node name="openDir" type="Button" parent="actions"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 43.0
-margin_bottom = 43.0
-hint_tooltip = "Set Project's Directory"
-icon = ExtResource( 3 )
-expand_icon = true
-script = ExtResource( 9 )
-
-[node name="popup" type="FileDialog" parent="actions/openDir"]
-margin_left = 112.0
-margin_top = 65.0
-margin_right = 896.0
-margin_bottom = 527.0
-theme = SubResource( 10 )
-custom_icons/toggle_hidden = ExtResource( 5 )
-custom_icons/parent_folder = ExtResource( 8 )
-custom_icons/reload = ExtResource( 7 )
-custom_icons/file = ExtResource( 6 )
-popup_exclusive = true
-window_title = "Otwórz katalog"
-resizable = true
-mode = 2
-access = 2
-show_hidden_files = true
-current_dir = "/home/unitedcatdom"
-current_path = "/home/unitedcatdom/"
+custom_fonts/font = ExtResource( 3 )
+highlight_current_line = true
+syntax_highlighting = true
+show_line_numbers = true
+draw_tabs = true
+breakpoint_gutter = true
+fold_gutter = true
+highlight_all_occurrences = true
+override_selected_font_color = true
+smooth_scrolling = true
+hiding_enabled = true
+wrap_enabled = true
+minimap_draw = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="closeDir" type="Button" parent="actions"]
-margin_left = 7.0
-margin_top = 50.0
-margin_right = 43.0
-margin_bottom = 88.0
-hint_tooltip = "Close Current Directory"
-text = "X"
-icon = ExtResource( 11 )
-expand_icon = true
+[node name="File 2" type="Tabs" parent="editor/files"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 34.0
+drag_to_rearrange_enabled = true
+
+[node name="code" type="TextEdit" parent="editor/files/File 2" groups=["code"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+highlight_current_line = true
+syntax_highlighting = true
+show_line_numbers = true
+draw_tabs = true
+breakpoint_gutter = true
+fold_gutter = true
+highlight_all_occurrences = true
+override_selected_font_color = true
+smooth_scrolling = true
+hiding_enabled = true
+wrap_enabled = true
+minimap_draw = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="openFile" type="Button" parent="actions"]
-margin_left = 7.0
-margin_top = 95.0
-margin_right = 43.0
-margin_bottom = 131.0
-hint_tooltip = "Open File"
-icon = ExtResource( 6 )
-expand_icon = true
-script = ExtResource( 10 )
+[node name="File 3" type="Tabs" parent="editor/files"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 34.0
+drag_to_rearrange_enabled = true
+
+[node name="code" type="TextEdit" parent="editor/files/File 3" groups=["code"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+highlight_current_line = true
+syntax_highlighting = true
+show_line_numbers = true
+draw_tabs = true
+breakpoint_gutter = true
+fold_gutter = true
+highlight_all_occurrences = true
+override_selected_font_color = true
+smooth_scrolling = true
+hiding_enabled = true
+wrap_enabled = true
+minimap_draw = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="popup" type="FileDialog" parent="actions/openFile"]
-margin_left = 112.0
-margin_top = 20.0
-margin_right = 896.0
-margin_bottom = 482.0
-theme = SubResource( 10 )
-custom_icons/toggle_hidden = ExtResource( 5 )
-custom_icons/parent_folder = ExtResource( 8 )
-custom_icons/reload = ExtResource( 7 )
-custom_icons/file = ExtResource( 6 )
-popup_exclusive = true
-window_title = "Otwórz plik"
-resizable = true
-mode = 0
-access = 2
-show_hidden_files = true
-current_dir = "/media/unitedcatdom/Dev/apps/UCIDEV"
-current_path = "/media/unitedcatdom/Dev/apps/UCIDEV/"
+[node name="File 4" type="Tabs" parent="editor/files"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 34.0
+drag_to_rearrange_enabled = true
+
+[node name="code" type="TextEdit" parent="editor/files/File 4" groups=["code"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+highlight_current_line = true
+syntax_highlighting = true
+show_line_numbers = true
+draw_tabs = true
+breakpoint_gutter = true
+fold_gutter = true
+highlight_all_occurrences = true
+override_selected_font_color = true
+smooth_scrolling = true
+hiding_enabled = true
+wrap_enabled = true
+minimap_draw = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="save" type="Button" parent="actions"]
-margin_left = 7.0
-margin_top = 137.0
-margin_right = 43.0
-margin_bottom = 173.0
-hint_tooltip = "If file is opened just click this to save.
-Hold Shift to \"Save As\"
-Hold CTRL / CMD to Delete currently opened file"
-icon = ExtResource( 13 )
-expand_icon = true
+[node name="File 5" type="Tabs" parent="editor/files"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 34.0
+drag_to_rearrange_enabled = true
+
+[node name="code" type="TextEdit" parent="editor/files/File 5" groups=["code"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+highlight_current_line = true
+syntax_highlighting = true
+show_line_numbers = true
+draw_tabs = true
+breakpoint_gutter = true
+fold_gutter = true
+highlight_all_occurrences = true
+override_selected_font_color = true
+smooth_scrolling = true
+hiding_enabled = true
+wrap_enabled = true
+minimap_draw = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="popup" type="FileDialog" parent="actions/save"]
-margin_left = 112.0
-margin_top = -22.0
-margin_right = 896.0
-margin_bottom = 439.0
-theme = SubResource( 10 )
-custom_icons/toggle_hidden = ExtResource( 5 )
-custom_icons/parent_folder = ExtResource( 8 )
-custom_icons/reload = ExtResource( 7 )
-custom_icons/file = ExtResource( 6 )
-popup_exclusive = true
-window_title = "Zapisz plik"
-resizable = true
-access = 2
-show_hidden_files = true
-current_dir = "/media/unitedcatdom/Dev/apps/UCIDEV"
-current_path = "/media/unitedcatdom/Dev/apps/UCIDEV/"
+[node name="File 6" type="Tabs" parent="editor/files"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 34.0
+drag_to_rearrange_enabled = true
+
+[node name="code" type="TextEdit" parent="editor/files/File 6" groups=["code"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+highlight_current_line = true
+syntax_highlighting = true
+show_line_numbers = true
+draw_tabs = true
+breakpoint_gutter = true
+fold_gutter = true
+highlight_all_occurrences = true
+override_selected_font_color = true
+smooth_scrolling = true
+hiding_enabled = true
+wrap_enabled = true
+minimap_draw = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="settings" type="Button" parent="actions"]
-margin_left = 7.0
-margin_top = 190.0
-margin_right = 43.0
-margin_bottom = 226.0
-hint_tooltip = "Settings
-Hold Shift to Save
-Hold CTRL / CMD to Apply"
-icon = ExtResource( 12 )
-expand_icon = true
-script = ExtResource( 14 )
+[node name="File 7" type="Tabs" parent="editor/files"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 34.0
+drag_to_rearrange_enabled = true
+
+[node name="code" type="TextEdit" parent="editor/files/File 7" groups=["code"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+highlight_current_line = true
+syntax_highlighting = true
+show_line_numbers = true
+draw_tabs = true
+breakpoint_gutter = true
+fold_gutter = true
+highlight_all_occurrences = true
+override_selected_font_color = true
+smooth_scrolling = true
+hiding_enabled = true
+wrap_enabled = true
+minimap_draw = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="confPopup" type="AcceptDialog" parent="."]
-margin_left = 257.0
-margin_top = 228.0
-margin_right = 816.0
-margin_bottom = 286.0
-popup_exclusive = true
-window_title = "ALERT"
-dialog_text = "TEXT"
-dialog_autowrap = true
+[node name="File 8" type="Tabs" parent="editor/files"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 34.0
+drag_to_rearrange_enabled = true
+
+[node name="code" type="TextEdit" parent="editor/files/File 8" groups=["code"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+highlight_current_line = true
+syntax_highlighting = true
+show_line_numbers = true
+draw_tabs = true
+breakpoint_gutter = true
+fold_gutter = true
+highlight_all_occurrences = true
+override_selected_font_color = true
+smooth_scrolling = true
+hiding_enabled = true
+wrap_enabled = true
+minimap_draw = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="tab_changed" from="files" to="." method="tabChanged"]
-[connection signal="text_changed" from="files/settings/code" to="." method="updateSettings"]
-[connection signal="pressed" from="actions/openDir" to="actions/openDir" method="openDir"]
-[connection signal="dir_selected" from="actions/openDir/popup" to="." method="changeProjectDir"]
-[connection signal="pressed" from="actions/closeDir" to="." method="closeDir"]
-[connection signal="pressed" from="actions/openFile" to="actions/openFile" method="openFile"]
-[connection signal="file_selected" from="actions/openFile/popup" to="." method="openFile"]
-[connection signal="pressed" from="actions/save" to="." method="save"]
-[connection signal="file_selected" from="actions/save/popup" to="." method="saveNew"]
-[connection signal="pressed" from="actions/settings" to="actions/settings" method="settings"]
+[node name="File 9" type="Tabs" parent="editor/files"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 34.0
+drag_to_rearrange_enabled = true
+
+[node name="code" type="TextEdit" parent="editor/files/File 9" groups=["code"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+highlight_current_line = true
+syntax_highlighting = true
+show_line_numbers = true
+draw_tabs = true
+breakpoint_gutter = true
+fold_gutter = true
+highlight_all_occurrences = true
+override_selected_font_color = true
+smooth_scrolling = true
+hiding_enabled = true
+wrap_enabled = true
+minimap_draw = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="dir_selected" from="popups/open_dir" to="." method="changeDir"]
+[connection signal="file_selected" from="popups/open_file" to="." method="openFile"]
+[connection signal="file_selected" from="popups/save_file" to="." method="saveFile"]
