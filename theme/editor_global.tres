@@ -1,0 +1,20 @@
+[gd_resource type="Theme" load_steps=3 format=2]
+
+[ext_resource path="res://theme/editor.tres" type="StyleBox" id=1]
+[ext_resource path="res://theme/editor_font.tres" type="DynamicFont" id=2]
+
+[resource]
+TextEdit/colors/bookmark_color = Color( 0.08, 0.49, 0.98, 1 )
+TextEdit/colors/brace_mismatch_color = Color( 1, 0.2, 0.2, 1 )
+TextEdit/colors/caret_color = Color( 1, 1, 1, 1 )
+TextEdit/colors/font_color = Color( 1, 1, 1, 1 )
+TextEdit/colors/font_color_readonly = Color( 0.470588, 0.470588, 0.470588, 0.862745 )
+TextEdit/colors/font_color_selected = Color( 0, 0, 0, 1 )
+TextEdit/colors/function_color = Color( 0, 0.6, 1, 1 )
+TextEdit/colors/line_number_color = Color( 1, 1, 1, 0.4 )
+TextEdit/colors/member_variable_color = Color( 1, 0.160784, 0.215686, 1 )
+TextEdit/colors/number_color = Color( 1, 0.529412, 0, 1 )
+TextEdit/colors/selection_color = Color( 1, 1, 1, 1 )
+TextEdit/colors/symbol_color = Color( 0, 1, 0.576471, 1 )
+TextEdit/fonts/font = ExtResource( 2 )
+TextEdit/styles/normal = ExtResource( 1 )

@@ -1,0 +1,447 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://fonts/heebo.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/main.gd" type="Script" id=2]
+[ext_resource path="res://theme/editor_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://theme/editor_global.tres" type="Theme" id=4]
+[ext_resource path="res://icons/file.svg" type="Texture" id=5]
+[ext_resource path="res://icons/folder.svg" type="Texture" id=6]
+[ext_resource path="res://icons/root-folder.svg" type="Texture" id=7]
+[ext_resource path="res://icons/refresh.svg" type="Texture" id=8]
+[ext_resource path="res://icons/eye.svg" type="Texture" id=9]
+
+[sub_resource type="DynamicFont" id=3]
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+content_margin_left = 6.0
+content_margin_right = 6.0
+bg_color = Color( 0.117647, 0.117647, 0.117647, 1 )
+border_width_left = 2
+border_width_right = 2
+border_color = Color( 1, 1, 1, 1 )
+expand_margin_left = 6.0
+expand_margin_right = 6.0
+
+[sub_resource type="StyleBoxFlat" id=5]
+content_margin_left = 12.0
+content_margin_right = 12.0
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 2
+border_width_right = 2
+border_color = Color( 0.117647, 0.117647, 0.117647, 1 )
+expand_margin_left = 6.0
+expand_margin_right = 6.0
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 1, 1, 1, 0 )
+
+[node name="ucidev" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="plugins" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="settings" type="TextEdit" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+readonly = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="project" type="TextEdit" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+readonly = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bg" type="TextEdit" parent="background"]
+visible = false
+modulate = Color( 0, 0, 0, 0 )
+self_modulate = Color( 0, 0, 0, 0 )
+show_behind_parent = true
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+readonly = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="img" type="TextureRect" parent="background"]
+modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="popups" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="open_dir" type="FileDialog" parent="popups"]
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+custom_icons/folder = ExtResource( 6 )
+custom_icons/toggle_hidden = ExtResource( 9 )
+custom_icons/parent_folder = ExtResource( 7 )
+custom_icons/reload = ExtResource( 8 )
+custom_icons/file = ExtResource( 5 )
+window_title = "Otwórz katalog"
+dialog_text = "Open Directory"
+dialog_autowrap = true
+mode = 2
+access = 2
+show_hidden_files = true
+current_dir = "/media/unitedcatdom/Dev/apps/UCIDEV/v2.0"
+current_path = "/media/unitedcatdom/Dev/apps/UCIDEV/v2.0/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="open_file" type="FileDialog" parent="popups"]
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+custom_icons/folder = ExtResource( 6 )
+custom_icons/toggle_hidden = ExtResource( 9 )
+custom_icons/parent_folder = ExtResource( 7 )
+custom_icons/reload = ExtResource( 8 )
+custom_icons/file = ExtResource( 5 )
+window_title = "Otwórz plik"
+dialog_text = "Open File"
+dialog_autowrap = true
+mode = 0
+access = 2
+show_hidden_files = true
+current_dir = "/media/unitedcatdom/Dev/apps/UCIDEV/v2.0"
+current_path = "/media/unitedcatdom/Dev/apps/UCIDEV/v2.0/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="save_file" type="FileDialog" parent="popups"]
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+custom_icons/folder = ExtResource( 6 )
+custom_icons/toggle_hidden = ExtResource( 9 )
+custom_icons/parent_folder = ExtResource( 7 )
+custom_icons/reload = ExtResource( 8 )
+custom_icons/file = ExtResource( 5 )
+window_title = "Save File"
+dialog_text = "Save File"
+dialog_autowrap = true
+access = 2
+show_hidden_files = true
+current_dir = "/media/unitedcatdom/Dev/apps/UCIDEV/v2.0"
+current_path = "/media/unitedcatdom/Dev/apps/UCIDEV/v2.0/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="editor" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="files" type="TabContainer" parent="editor"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color_bg = Color( 0.392157, 0.392157, 0.392157, 1 )
+custom_colors/font_color_fg = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/tab_fg = SubResource( 4 )
+custom_styles/tab_bg = SubResource( 5 )
+custom_styles/panel = SubResource( 6 )
+tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="File 1" type="Tabs" parent="editor/files"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 34.0
+drag_to_rearrange_enabled = true
+
+[node name="code" type="TextEdit" parent="editor/files/File 1" groups=["code"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+highlight_current_line = true
+syntax_highlighting = true
+show_line_numbers = true
+draw_tabs = true
+breakpoint_gutter = true
+fold_gutter = true
+highlight_all_occurrences = true
+override_selected_font_color = true
+smooth_scrolling = true
+hiding_enabled = true
+wrap_enabled = true
+minimap_draw = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="File 2" type="Tabs" parent="editor/files"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 34.0
+drag_to_rearrange_enabled = true
+
+[node name="code" type="TextEdit" parent="editor/files/File 2" groups=["code"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+highlight_current_line = true
+syntax_highlighting = true
+show_line_numbers = true
+draw_tabs = true
+breakpoint_gutter = true
+fold_gutter = true
+highlight_all_occurrences = true
+override_selected_font_color = true
+smooth_scrolling = true
+hiding_enabled = true
+wrap_enabled = true
+minimap_draw = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="File 3" type="Tabs" parent="editor/files"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 34.0
+drag_to_rearrange_enabled = true
+
+[node name="code" type="TextEdit" parent="editor/files/File 3" groups=["code"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+highlight_current_line = true
+syntax_highlighting = true
+show_line_numbers = true
+draw_tabs = true
+breakpoint_gutter = true
+fold_gutter = true
+highlight_all_occurrences = true
+override_selected_font_color = true
+smooth_scrolling = true
+hiding_enabled = true
+wrap_enabled = true
+minimap_draw = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="File 4" type="Tabs" parent="editor/files"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 34.0
+drag_to_rearrange_enabled = true
+
+[node name="code" type="TextEdit" parent="editor/files/File 4" groups=["code"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+highlight_current_line = true
+syntax_highlighting = true
+show_line_numbers = true
+draw_tabs = true
+breakpoint_gutter = true
+fold_gutter = true
+highlight_all_occurrences = true
+override_selected_font_color = true
+smooth_scrolling = true
+hiding_enabled = true
+wrap_enabled = true
+minimap_draw = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="File 5" type="Tabs" parent="editor/files"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 34.0
+drag_to_rearrange_enabled = true
+
+[node name="code" type="TextEdit" parent="editor/files/File 5" groups=["code"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+highlight_current_line = true
+syntax_highlighting = true
+show_line_numbers = true
+draw_tabs = true
+breakpoint_gutter = true
+fold_gutter = true
+highlight_all_occurrences = true
+override_selected_font_color = true
+smooth_scrolling = true
+hiding_enabled = true
+wrap_enabled = true
+minimap_draw = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="File 6" type="Tabs" parent="editor/files"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 34.0
+drag_to_rearrange_enabled = true
+
+[node name="code" type="TextEdit" parent="editor/files/File 6" groups=["code"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+highlight_current_line = true
+syntax_highlighting = true
+show_line_numbers = true
+draw_tabs = true
+breakpoint_gutter = true
+fold_gutter = true
+highlight_all_occurrences = true
+override_selected_font_color = true
+smooth_scrolling = true
+hiding_enabled = true
+wrap_enabled = true
+minimap_draw = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="File 7" type="Tabs" parent="editor/files"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 34.0
+drag_to_rearrange_enabled = true
+
+[node name="code" type="TextEdit" parent="editor/files/File 7" groups=["code"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+highlight_current_line = true
+syntax_highlighting = true
+show_line_numbers = true
+draw_tabs = true
+breakpoint_gutter = true
+fold_gutter = true
+highlight_all_occurrences = true
+override_selected_font_color = true
+smooth_scrolling = true
+hiding_enabled = true
+wrap_enabled = true
+minimap_draw = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="File 8" type="Tabs" parent="editor/files"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 34.0
+drag_to_rearrange_enabled = true
+
+[node name="code" type="TextEdit" parent="editor/files/File 8" groups=["code"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+highlight_current_line = true
+syntax_highlighting = true
+show_line_numbers = true
+draw_tabs = true
+breakpoint_gutter = true
+fold_gutter = true
+highlight_all_occurrences = true
+override_selected_font_color = true
+smooth_scrolling = true
+hiding_enabled = true
+wrap_enabled = true
+minimap_draw = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="File 9" type="Tabs" parent="editor/files"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 34.0
+drag_to_rearrange_enabled = true
+
+[node name="code" type="TextEdit" parent="editor/files/File 9" groups=["code"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+highlight_current_line = true
+syntax_highlighting = true
+show_line_numbers = true
+draw_tabs = true
+breakpoint_gutter = true
+fold_gutter = true
+highlight_all_occurrences = true
+override_selected_font_color = true
+smooth_scrolling = true
+hiding_enabled = true
+wrap_enabled = true
+minimap_draw = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="dir_selected" from="popups/open_dir" to="." method="changeDir"]
+[connection signal="file_selected" from="popups/open_file" to="." method="openFile"]
+[connection signal="file_selected" from="popups/save_file" to="." method="saveFile"]
