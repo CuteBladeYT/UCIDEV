@@ -11,7 +11,6 @@ UCIDEV is a Open Source, Configurable Text / Code editor made in Godot.
 - [How to Install](#how-to-install)
 - [How to Use](#how-to-use)
 - [Customization](#customization)
-- [Plans for next Releases](https://github.com/CuteBladeYT/UCIDEV/projects/1)
 
 <br>
 
@@ -25,7 +24,7 @@ git clone https://github.com/CuteBladeYT/UCIDEV
 3. Import the project by clicking **Import** and selecting the folder with project
 4. Navigate though `Project > Export > Add > (YOUR OS) ` then in **Export path** select where to export the app
 5. If you don't have any export templates, download one in **Export** tab in Godot
-6. **Export project**, Remember to uncheck **Export with debugging**!
+6. **Export project**, it doesn't really matter that much if you check or uncheck **Export with debugging**
 7. Done!
 
 <br>
@@ -38,8 +37,7 @@ Go to [Github Releases](https://github.com/CuteBladeYT/UCIDEV/releases) page and
 ### How to Use
 
 #### Directories
-Settings / Prefixes directory is `res://`<br>
-BUT there's also Project directory (for logs) in `user://`<br>
+Settings / Prefixes directory is `user://`<br>
 `user://` on:
 - Windows: `%AppData%\Godot\UCIDEV`
 - Linux: `~/.local/share/godot/`
@@ -47,12 +45,13 @@ BUT there's also Project directory (for logs) in `user://`<br>
 
 #### Keybinds
 
-**Note: On Mac `CTRL` is `CMD`**
-
-`CTRL + S` - Save<br>
-`CTRL + SHIFT + S` - Save As<br>
-`CTRL + O` - Open new file<br>
-`CTRL + D` - Change project directory<br>
+**Mac: `CTRL` = `CMD` | `ALT` = `Option`**
+- `F11` - Toggle Fullscreen
+- `CTRL + S` - Save
+- `CTRL + SHIFT + S` - Save As
+- `CTRL + O` - Open new file
+- `CTRL + D` - Change project directory
+- `ALT + 1-9` - Change current file to equivalent key
 
 <br>
 
@@ -61,17 +60,7 @@ BUT there's also Project directory (for logs) in `user://`<br>
 
 #### Settings
 
-Settings file is in `res://settings.uci`<br>
-It looks like this:
-```
-lineNum true
-drawTabs true
-minimap true
-minimapWid 80
-caretBlock false
-caretBlink false
-smoothScroll false
-```
+Settings file is in `res://settings.uci` and `res://settingsbackup.uci` (backup)<br>
 This is default settings that comes with 
 
 <br>
@@ -82,7 +71,15 @@ Theme and Highlighting colors config files can be found in `res://theme/`. They 
 
 #### Plugins
 
-Well yeah, in version **v2.0.0** plugins got included, they are stored in `res://plugins/` and they can be written in **GodotScript**, **NativeScript** and **VisualScript**. There's an example plugin that comes with UCID named `.example.gd` and is written in GodotScript.
+Well yeah, in version **v2.0.0** plugins got included, ~~they are stored in `res://plugins/`~~ (FIXED IN [v2.2.0](https://github.com/CuteBladeYT/UCIDEV/releases/tag/v2.2.0), to install plugins you have to build the app for yourself. [How to Build](#how-to-build).<br>
+How to install plugins:
+- Do first three steps from [How to Build](#how-to-build)
+- In project tree there's Control node named `plugins` (on top of the list), inside it create another Control node named with the same name your plugins is
+- Click on the plugin name (inside project tree) and on the tree on the right scroll to the bottom then next to `Script` there should be `[empty]`. Click on it then click on `Load` and select the script.
+- Do the rest from [How to Build](#how-to-build) and you're ready to go!
+<br>
+
+Plugins can be written in **GodotScript**, **NativeScript** and **VisualScript**. First line should **always** start with `extends Control`
 
 <br>
 
